@@ -1,0 +1,29 @@
+---
+- name: InfluxDB  Installation
+  hosts: influxdb
+  become: true
+  tasks:
+
+    - name: Copying file with owner and permissions
+      copy:
+        src: /etc/ansible/playbook/influxdb/influxdb-1.8.1.x86_64.rpm
+        dest: /home/demo-adm/influxdb-1.8.1.x86_64.rpm
+        owner: demo-adm
+        mode: 0755
+
+    - name: Copy Successful
+      debug:
+        msg: Copied
+       
+    - name: Install package.
+      shell: sudo yum localinstall *.rpm -y
+      args:
+        chdir: /home/demo-adm/ 
+
+    - name: Installation Successful
+      debug:
+        msg: Installed
+    
+
+    - name: Start InfluxDB
+      shell: sudo systemctl start influxd

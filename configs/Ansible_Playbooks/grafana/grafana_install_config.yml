@@ -1,0 +1,31 @@
+---
+- name: Grafana  Installation
+  hosts: influxdb
+  become: true
+  tasks:
+
+    - name: Copying file with owner and permissions
+      copy:
+        src: /etc/ansible/playbook/grafana/grafana-7.1.0-1.x86_64.rpm
+        dest: /home/demo-adm/grafana-7.1.0-1.x86_64.rpm
+        owner: demo-adm
+        mode: 0755
+
+    - name: Copy Successful
+      debug:
+        msg: Copied
+       
+    - name: Install package.
+      shell: sudo yum localinstall grafana-7.1.0-1.x86_64.rpm -y
+      args:
+        chdir: /home/demo-adm/ 
+
+    - name: Installation Successful
+      debug:
+        msg: Installed
+    
+
+    - name: Start InfluxDB and enable on-boot
+      shell: sudo systemctl daemon-reload
+      shell: sudo systemctl start grafana-server
+      shell: sudo systemctl enable grafana-server

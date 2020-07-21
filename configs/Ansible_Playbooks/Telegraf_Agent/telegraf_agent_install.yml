@@ -1,0 +1,45 @@
+---
+- name: Telegraf Agent Installation
+  hosts: telegraf-agent
+  become: true
+  tasks:
+
+    - name: Copying file with owner and permissions
+      copy:
+        src: /etc/ansible/playbook/telegraf-1.14.5-1.x86_64.rpm
+        dest: /home/demo-adm/telegraf-1.14.5-1.x86_64.rpm
+        owner: demo-adm
+        mode: 0755
+
+    - name: Copy Successful
+      debug:
+        msg: Copied
+       
+    - name: Install package.
+      shell: sudo yum localinstall *.rpm -y
+      args:
+        chdir: /home/demo-adm/ 
+
+    - name: Installation Successful
+      debug:
+        msg: Installed
+    
+    - name: Copy Configuration file
+      copy:
+        src: /etc/ansible/playbook/telegraf.conf
+        dest: /home/demo-adm/telegraf.conf
+        owner: root
+        mode: 0755
+
+    - name: Rename the old file
+      shell: mv /etc/telegraf/telegraf.conf /etc/telegraf/telegraf_bkp.conf
+
+    - name: Replace the File
+      shell: cp /home/demo-adm/telegraf.conf /etc/telegraf/telegraf.conf
+
+    - name: Restart Telegraf Agent
+      shell: sudo systemctl stop telegraf
+      shell: sudo systemctl start telegraf
+
+    - name: Enable Start on boot
+      shell: sudo systemctl enable telegraf

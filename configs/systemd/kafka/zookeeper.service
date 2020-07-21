@@ -1,0 +1,15 @@
+# /etc/systemd/system/zookeeper.service
+[Unit]
+Description=Kafka
+After=network.target
+
+[Service]
+User=demo-adm
+Group=demo-adm
+WorkingDirectory=/home/demo-adm/kafka
+ExecStart=/home/demo-adm/kafka/bin/zookeeper-server-start.sh /home/demo-adm/kafka/config/zookeeper.properties
+Restart=on-failure
+SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target
