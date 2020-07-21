@@ -14,5 +14,10 @@ The above architectural diagram shows end to end data flow and the components ar
 
 <h2> Setup and Configurations </h2><br/>
 <h3> Ansible Setup and Configurations </h3><br/>
-For Ansible setup and configurations, refer the following link:<br/>
+For Ansible setup and configurations, download the document from the following link:<br/>
 https://github.com/subh0000/demo-project/blob/master/docs/Ansible_Setup_Configurations.docx <br/>
+<B>Note</B>: the yaml files are uploaded in the config directory to install and configure the following using Ansible automation </br>
+1. Telegraf Agent.</br>
+2. Influx DB.</br>
+3. Kapacitor.</br>
+4. Grafana. </br>
