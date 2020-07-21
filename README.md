@@ -11,3 +11,5 @@ The above architectural diagram shows end to end data flow and the components ar
 - Apache Kafka.<br/>
 - Ansible.<br/>
 - Jenkins.<br/>
+
+<h2> Setup and Configurations </h2><br/>
