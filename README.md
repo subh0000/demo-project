@@ -4,10 +4,10 @@ The Demo project is built in the test environment to detail out system, applicat
 The following image represents high-level architecture.
 <img src="https://github.com/subh0000/demo-project/blob/master/images/architecture.JPG">
 The above architectural diagram shows end to end data flow and the components are used in this demo project as follows:
-- Telegraf Agent.
-- Influx DB.
-- Kapacitor.
-- Grafana.
-- Apache Kafka.
-- Ansible.
-- Jenkins.
+- Telegraf Agent.<br/>
+- Influx DB.<br/>
+- Kapacitor.<br/>
+- Grafana.<br/>
+- Apache Kafka.<br/>
+- Ansible.<br/>
+- Jenkins.<br/>
