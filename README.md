@@ -21,3 +21,7 @@ https://github.com/subh0000/demo-project/blob/master/docs/Ansible_Setup_Configur
 2. Influx DB.</br>
 3. Kapacitor.</br>
 4. Grafana. </br>
+
+<h3> Kafka Setup and Configurations </h3><br/>
+For Kafka setup and configurations, download the document from the following link:<br/>
+https://github.com/subh0000/demo-project/blob/master/docs/Kafka_Setup_Configurations.docx </br>
